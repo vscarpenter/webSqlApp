@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<!--
+ * Fonctionnement:
+ * sqlSyncHandlerTest.html  (test to receive a JSON using $getJSON() )
+ * Call sqlSyncHandlerTest.php (connect to server, do a MySQL query, call sqlSyncHandler.php using   $handler -> reply   to send a formatted JSON
+ * Call sqlSyncHandler.php (send a formatted JSON)
+ * 
+ * sqlSyncHandlerTest3.php should call getUnit.php (SELECT myDb…) to do the MySQL query.
+-->
+<head>
+    <title>sqlSyncHandler Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.1.0.min.js"></script>
+</head>
+
+<body>
+
+
+<div id="response">
+    <p id="responseParagraph">Base text</p>
+</div>
+
+<script>
+    $.getJSON('http://www.myWebSite.com/webSqlAppGit/sqlSyncHandlerTest.php',
+        function(myJsonObject) {
+			alert(myJsonObject.result);
+			alert(myJsonObject.message);
+			alert(myJsonObject.sync_date);
+			alert(myJsonObject.data[2].UniteID);
+			alert(myJsonObject.data[2].UniteSymbol);
+            //$('#responseParagraph').append("<p>"+myJsonObject.message+"</p>");
+        }
+	);
+</script>
+</body>
+</html>

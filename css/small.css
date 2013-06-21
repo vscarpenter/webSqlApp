@@ -1,0 +1,180 @@
+/* Add whatever you need to your CSS reset */
+html, body, h1, form, fieldset, input {
+ margin: 0;
+ padding: 0;
+ border: none;
+ }
+
+body { font-family: Helvetica, Arial, sans-serif; font-size: 12px; }
+
+
+#registration {
+    color: #fff;
+    background: #2d2d2d;
+    background: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(60,60,60)),
+        color-stop(0.74, rgb(43,43,43)),
+        color-stop(1, rgb(60,60,60))
+        );
+     background: -moz-linear-gradient(
+        center bottom,
+        rgb(60,60,60) 0%,
+        rgb(43,43,43) 74%,
+        rgb(60,60,60) 100%
+        );
+     -moz-border-radius: 10px;
+     -webkit-border-radius: 10px;
+     border-radius: 10px;
+     margin: 10px;
+     width: 300px;
+     }
+
+ #registration a {
+      color: #8c910b;
+      text-shadow: 0px -1px 0px #000;
+      }
+
+#registration fieldset {
+      padding: 20px;
+}
+
+/* Styling the Input Fields */
+input.text {
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+     border-radius: 5px;
+     border:solid 1px #444;
+     font-size: 14px;
+     width: 90%;
+     padding: 7px 8px 7px 8px;
+     background: #ddd;
+     background: -moz-linear-gradient(
+          center bottom,
+          rgb(225,225,225) 0%,
+          rgb(215,215,215) 54%,
+          rgb(173,173,173) 100%
+     );
+     background: -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0, rgb(225,225,225)),
+          color-stop(0.54, rgb(215,215,215)),
+          color-stop(1, rgb(173,173,173))
+      );
+      color:#333;
+/*      text-shadow:0px 1px 0px #FFF;
+      -moz-box-shadow: 0px 1px 0px #777;
+      -webkit-box-shadow: 0px 1px 0px #777;
+      box-shadow: 0px 1px 0px #777;
+*/
+		/*Adding icon*/
+		background: #ddd url('../images/smallSprite.png') no-repeat 4px 6px;
+		 background: url('../images/smallSprite.png') no-repeat 4px 6px, -moz-linear-gradient(
+		center bottom,
+		rgb(225,225,225) 0%,
+		rgb(215,215,215) 54%,
+		rgb(173,173,173) 100%
+		);
+		
+		background:  url('../images/smallSprite.png') no-repeat 4px 6px, -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(225,225,225)),
+		color-stop(0.54, rgb(215,215,215)),
+		color-stop(1, rgb(173,173,173))
+		);
+ }
+
+/*  */
+input#name {
+	background-position: 4px -52px;
+	background-position: 4px -52px, 0px 0px;
+}
+input#tel {
+	background-image: url("../images/sprite.png");
+	background-position: -84px -2899px;
+/*background-position: 4px -81px;
+background-position: 4px -81px, 0px 0px;*/
+}
+input#email {
+   background-position: 4px 0px;
+   background-position: 4px 0px, 0px 0px;
+}
+input#password {
+   background-position: 4px -26px;
+   background-position: 4px -26px, 0px 0px;
+ }
+input#select-unite {
+   background-position: 4px -26px;
+   background-position: 4px -26px, 0px 0px;
+ }
+
+/* Styling the Header & Submit Button */
+#registration h2 {
+color: #fff;
+text-shadow: 0px -1px 0px #000;
+text-align: center;
+padding: 18px;
+margin: 0px;
+font-weight: normal;
+      font-size: 24px;
+      font-family: Lucida Grande, Helvetica, Arial, sans-serif;
+border-bottom: solid #181818 1px;
+-moz-box-shadow: 0px 1px 0px #3a3a3a;
+-webkit-box-shadow: 0px 1px 0px #3a3a3a;
+box-shadow: 0px 1px 0px #3a3a3a;
+      }
+
+/* Register submit button */
+#registerNew {
+width: 203px;
+height: 40px;
+border: none;
+text-indent: -9999px;
+background: url('../images/createAccountButton.png') no-repeat;
+cursor: pointer;
+float: right;
+}
+#registerNew:hover { background-position: 0px -41px; }
+#registerNew:active { background-position: 0px -82px; }
+
+.styled-selectbox {
+width: 250px;
+height: 30px;
+overflow: hidden;
+background-color: transparent; /*#E1E1E1;*/
+background: url(../images/Select22.png) no-repeat ;
+border-radius: 5px;
+}
+.styled-selectbox select {
+background-color: transparent; /*#E1E1E1;*/
+/*background: url(../images/Select22.png) no-repeat right ;*/
+width: 250px;
+/*padding: 25px;*/
+border: 1px solid #CCC;
+font-size: 14px;
+height: 35px;
+outline:20px;
+-webkit-appearance: none;
+-moz-appearance:none;
+border-radius: 5px;
+}
+.styled-selectbox option {
+background: lightgrey;
+width: 250px;
+/*padding: 10px;*/
+border: 1px solid #CCC;
+font-size: 14px;
+height: 30px;
+outline:0px;
+-webkit-appearance: none;
+-moz-appearance:none;
+}
+
+
+

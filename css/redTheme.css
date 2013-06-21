@@ -1,0 +1,1092 @@
+/* Main CSS - RedTheme for HTML5 R&DwebSQL! */
+
+body, a {
+	color: #403d3a;
+	font-family: "museo sans", "font-face museo sans", helvetica, arial, sans-serif;
+}
+
+body {
+	padding-bottom: 200px;
+}
+
+header {
+	border-bottom: 1px solid #fff;
+}
+
+h1 {
+	padding: 40px 10px;
+	display: block;
+	border-bottom: 1px solid #eeece9;
+	
+	text-align: center;
+	letter-spacing: -1px;
+	font-size: 30pt;
+	font-family: "chunkfive", "font-face chunkfive", "museo slab", "romeral", sans-serif;
+	text-shadow: 0px 2px 2px #EFEBE7, 0px 4px 2px #CFC8C2; 
+}
+/* à créer
+menu-button {
+*/
+/* Source: */
+user-info__actions {*zoom:1;display:block}
+.user-info__actions:after{content:"";display:table;clear:both}
+.user-info__actions>div,.user-info__actions>a{float:left}
+.user-info--author{background:#f4f4f4;border:1px solid #bbb;display:block;padding:20px;*zoom:1;background:#e0e0e0;margin-bottom:20px}
+.user-info--author:after{content:"";display:table;clear:both}
+.user-info--author .user-info__details{width:205px}
+
+a[role="button"], button, input[type="submit"] {
+    background-clip: padding-box;
+    background-color: #BB3415;
+    background-image: linear-gradient(#D0441B, #BB3415);
+    border: 1px solid #C93D1E;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font: 13px/17px Tahoma,Geneva,sans-serif;
+    margin: 0 10px 0 0;
+    padding: 5px 10px 6px;
+    text-align: left;
+    text-shadow: 0 0 0 transparent, 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.search-container{*zoom:1;display:block;float:right;padding:7px 0;position:relative}nav[role=navigation] 
+.search-container:after{content:"";display:table;clear:both}nav[role=navigation] 
+.search-container input{border-color:#fff;float:left;margin-right:10px;padding-top:6px;padding-bottom:6px;width:150px}nav[role=navigation] 
+.search-container button[type=submit]{background:#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d0441b), color-stop(100%, #bb3415)),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,-webkit-linear-gradient(#d0441b, #bb3415),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,-moz-linear-gradient(#d0441b, #bb3415),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,-o-linear-gradient(#d0441b, #bb3415),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,linear-gradient(#d0441b,#bb3415),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;border:0;float:right;height:30px}nav[role=navigation] .search-container button[type=submit]:hover,nav[role=navigation] .search-container button[type=submit]:focus{background:#bc3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d0441b), color-stop(100%, #bc3415)),#bc3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,-webkit-linear-gradient(#d0441b, #bc3415),#bc3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,-moz-linear-gradient(#d0441b, #bc3415),#bc3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,-o-linear-gradient(#d0441b, #bc3415),#bc3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat,linear-gradient(#d0441b,#bc3415),#bc3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1647px no-repeat}nav[role=navigation] .search-container button[type=submit]:active{background:#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat,-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bc3415), color-stop(100%, #d0441b)),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat,-webkit-linear-gradient(#bc3415, #d0441b),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat,-moz-linear-gradient(#bc3415, #d0441b),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat,-o-linear-gradient(#bc3415, #d0441b),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat;background:url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat,linear-gradient(#bc3415,#d0441b),#bb3415 url(http://www.affairesup.com/5SQL/images/common-sc574d08208-061c972d87f7ec76ec4619a8e8f3509f.png) 7px -1646px no-repeat}
+
+.portfolio a:before{background-position:0 -1723px}
+
+
+/*
+#progress {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #eeece9;
+	padding: 15px 0px;
+}
+
+#progress-indicator-container{
+	width: 52%;
+	float: right;
+}
+
+#progress-canvas {
+	width: 225px;
+	position: relative;
+}
+
+#progress-canvas svg {
+	height: 16px;
+	width: 0;
+}
+
+#progress-indicator {
+	background: #efebe7;
+	height: 16px;
+	width: 225px;
+	
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	
+	-webkit-box-reflect: below 3px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.6, transparent), to(rgba(255,255,255,0.2)));
+}
+
+#progress .expletive {
+	width: 45%;
+	text-align: right;
+	font-size: 0.8em;
+}
+*/
+#wrapper {
+	width: 700px;
+	height: auto;
+	margin: 0px auto;
+	position: relative;
+	top: 50px;
+	
+	background: #f7f5f3;
+	background: -moz-linear-gradient(top, #f7f5f3, #f7f0f3);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f7f5f3), to(#f7f0f3));
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#f7f5f3', EndColorStr='#f7f0f3', GradientType=0);
+	
+	border-radius : 15px;
+	-moz-border-radius : 15px;
+	-webkit-border-radius: 15px;
+	-khtml-border-radius: 15px;
+	/* mirroir sous le grand cadre 
+	-webkit-box-reflect: below 3px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.8, transparent), to(rgba(255,255,255,0.7)));
+	*/
+}
+/* pour une bande dans le coin gauche à 45 degré
+#sash-container {
+	position: absolute;
+}
+ 
+#sash {
+	padding: 10px 10px;
+	height: auto;
+	width: 160px;
+	text-align: center;
+	font-size: 0.8em;
+	color: #f7f5f3;
+	text-shadow: -2px 1px 0px #6b1010;
+
+	position: relative;
+	top: 15px;
+	left: -50px;
+	z-index: 89;
+
+	-webkit-transform: rotate(-40deg); 
+	-moz-transform: rotate(-40deg);
+	transform: rotate(-40deg);
+	-o-transform: rotate(-40deg);
+
+	background: #dc3a3a;
+	background: -moz-linear-gradient(top,  #dc3a3a,  #b31b1b);
+	background: -webkit-gradient(linear, left top, left bottom, from(#dc3a3a), to(#b31b1b));
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#dc3a3a', EndColorStr='#b31b1b', GradientType=0);
+
+	-webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+	-moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+
+	border-top: 1px solid #dc3a3a;
+	border-bottom: 1px solid #b31b1b;
+}
+
+.hide-sash-top {
+	width: 200px;
+	height: 100px;
+	background: #fff;
+	position: absolute;
+	top: -107px;
+	left: 20px;
+	z-index: 90;
+}
+
+
+.hide-sash-left {
+	width: 100px;
+	height: 200px;
+	background: #fff;
+	position: absolute;
+	top: 35px;
+	left: -107px;
+	z-index: 91;
+}
+
+.sash-shadow-top {
+	height: 0;
+	width: 0;
+	line-height: 0;
+	border-left: 8px solid transparent;
+	border-top: 8px solid #ac1d1d;
+	position: absolute;
+	top: -5px;
+	left: 115px;
+
+	z-index: 10;
+
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.sash-shadow-left {
+	height: 0;
+	width: 0;
+	line-height: 0;
+	border-left: 9px solid transparent;
+	border-top: 9px solid #ac1d1d;
+	position: absolute;
+	top: 96px;
+	left: -4px;
+
+	z-index: 10;
+
+	-webkit-transform: rotate(225deg);
+	-moz-transform: rotate(225deg);
+	-o-transform: rotate(225deg);
+	transform: rotate(225deg);
+}
+
+.hide-sash-shadow-top {
+	background: #fff;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: -60px;
+	left: 104px;
+	
+	z-index: 120;
+	
+	-webkit-transform: rotate(-40deg); 
+	-moz-transform: rotate(-40deg);
+	-o-transform: rotate(-40deg);
+	transform: rotate(-40deg);
+}
+
+.hide-sash-shadow-left {
+	background: #fff;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 79px;
+	left: -60px;
+	
+	z-index: 120;
+	
+	-webkit-transform: rotate(-40deg); 
+	-moz-transform: rotate(-40deg);
+	-o-transform: rotate(-40deg);
+	transform: rotate(-40deg);
+}
+*/
+
+p { 
+	line-height: 1.4; 
+}
+
+#form-container, #process-container {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+table {
+	width: 100%;
+	text-align: left;
+}
+
+tr {
+	height: auto;
+	vertical-align: middle;
+}
+
+th, td {
+	vertical-align: middle;
+}
+
+#form-container th {
+	width: 150px;
+	max-width: 150px;
+}
+
+#form-container th span, #form-container th label {
+	display: block;
+	width: auto;
+	text-align: left;
+	padding-left: 25px;
+}
+ 
+#form-container td {
+	font-size: 0.8em;
+	padding: 10px 0px;
+}
+
+.field, .text-field, .date-field, .email-field, .password-field, .ac_results {
+	padding: 11px 7px;
+	font-size: 1.5em;
+	border: 1px solid #dedede;
+	width: 280px;
+	color: #403d3a;
+	
+	background: #f4f4f4;
+	background: -moz-linear-gradient(top,  #f2f2f2,  #ffffff);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#ffffff));
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#f2f2f2', EndColorStr='#ffffff', GradientType=0);
+	
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+}
+
+/* Source simple: http://experiments.wemakesites.net/css3-selectbox.html */ 
+/* http://acidmartin.wordpress.com/2012/11/29/how-to-style-select-boxes-with-css3/*/
+/* Fonctionne presque. */
+/*
+ * @CSS3 Selectbox
+ * @author Martin Ivanov
+ * @website http://wemakesitesnet
+ * @blog http://acidmartin.wordpress.com
+ * @twitter https://twitter.com/#!/wemakesitesnet
+ **/
+/* 
+:root .css3-selectbox,
+:root .css3-selectbox select,
+:root .css3-selectbox::after,
+:root .css3-selectbox::before
+{
+    display: inline-block;
+    vertical-align: top;
+    height: 40px; // Modifie la hauteur de la SelectBox //
+}
+ 
+:root .css3-selectbox::after,
+:root .css3-selectbox::before
+{
+    content: "";
+    -moz-pointer-events: none;
+    -webkit-pointer-events: none;
+    pointer-events: none;
+}
+ 
+:root .css3-selectbox,
+:root .css3-selectbox::after
+{
+    background: #757575;
+    background: -moz-linear-gradient(#757575, #626262);
+    background: -webkit-linear-gradient(#757575, #626262);
+    background: -ms-linear-gradient(#757575, #626262);
+    background: -o-linear-gradient(#757575, #626262);
+    background: linear-gradient(#757575, #626262);
+}
+ 
+:root .css3-selectbox select
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: normal 11px/18px "Segoe UI", Arial, Sans-serif;
+    color: #fff;
+    outline: none;
+}
+ 
+:root .css3-selectbox option
+{
+    background: #111111; // Couleur de ??? #FFFFFF (blanc) , était 535353 //
+    left: 2px; // ??? //
+    position: absolute; // ??? //
+	width: 500px; // Largeur donnée pour les options //
+}
+ 
+:root .css3-selectbox
+{
+    border: solid 1px #303030;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 3px;
+    position: relative;
+    box-shadow: 0 0 0 1px #6a6a6a, 0 0 0 1px #919191 inset;
+}
+ 
+:root .css3-selectbox::before
+{
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    right: 4px;
+    width: 0;
+    height: 0;
+    border: solid 4px transparent;
+    border-top-color: rgba(255, 255, 255, .6);
+}
+ 
+:root .css3-selectbox::after
+{
+    position: relative;
+    left: 1px;
+    width: 40px; // Largeur pour la flèche du sélect, était 16 //
+    margin: 0 0 0 -17px;
+    box-shadow: -1px 0 0 1px #919191 inset;
+}
+ 
+:root .css3-selectbox:hover::before
+{
+    border-top-color: #fff;
+}
+*/
+
+/* Source simple: http://cssdeck.com/labs/styling-select-box-with-css3 */
+/* Essayé. Marche mais bogue les autres éléments qui ont des label */
+body, html {background:#444; text-align:center; padding:50px 0;}
+
+/* The CSS */
+.select {
+	/* Size and position */
+	position: relative; /* Enable absolute positioning for children and pseudo elements */
+    width: 300px;
+    height: 40px;
+	padding: 11px 7px;
+	padding:3px;
+    margin: 0;
+
+	/* Styles */
+    background: #f8f8f8;
+	color: #403d3a;
+    outline:none;
+    cursor:pointer;
+
+	/* Font settings */
+	font-size: 1.0em;
+	/*font-size: 30px;*/
+	/*font-weight: bold;*/
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+	border: 1px solid #dedede;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    color:#888;
+    border:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
+}
+
+/*label {position:relative}*/
+.select + label:after {
+    content:'<>';
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg); // rotated '<>' by 90 degrees with CSS3 transforms //
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none; /* to make sure that the dropdown opens when the arrows are clicked. It makes sure that the pseudo element does not receive any hover/click event, instead the event occurs on what is behind it, i.e., the label element. */
+}
+.select + label:before {
+    content:'';
+    right:6px; top:0px;
+    width:20px; height:20px;
+    background:#f8f8f8;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+
+
+/* Source complexe : http://www.m4s.ca/#/nous-joindre */
+/**/#nous-joindre {
+    background: url("http://www.affairesup.com/5SQL/images/backgrounds/nous-joindre-bg.jpg") no-repeat scroll left top #3E3E3E;
+    min-height: 635px;
+    z-index: 30;
+}
+#nous-joindre .center {
+    color: #FFFFFF;
+    padding-bottom: 97px;
+    padding-top: 120px;
+}
+#nous-joindre .center h2 {
+    color: #FFFFFF;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 62px;
+    text-align: center;
+}
+#nous-joindre .center h2 span {
+    color: #EE3826;
+    display: block;
+    font-size: 22px;
+}
+#nous-joindre .center form {
+    height: 340px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 827px;
+}
+#nous-joindre .center form fieldset {
+    float: left;
+    margin-left: 21px;
+}
+#nous-joindre .center form fieldset input[type="text"] {
+    width: 371px;
+}
+#nous-joindre .center form fieldset p:first-child {
+    margin-top: 0;
+}
+#nous-joindre .center form fieldset:first-child {
+    margin-left: 0;
+    width: 357px;
+}
+#nous-joindre .center form fieldset:first-child input[type="text"] {
+    width: 283px;
+}
+#nous-joindre .center form p {
+    display: block;
+    margin-top: 24px;
+    position: relative;
+    width: 100%;
+}
+#nous-joindre .center form p span {
+    background-image: url("http://www.affairesup.com/5SQL/images/sprite.png");
+    background-repeat: no-repeat;
+    height: 28px;
+    left: 12px;
+    position: absolute;
+    top: 10px;
+    width: 29px;
+}
+#nous-joindre .center form p span.ico-email {
+    background-position: -139px -2898px;
+}
+#nous-joindre .center form p span.ico-phone {
+    background-position: -84px -2899px;
+}
+#nous-joindre .center form p span.ico-name {
+    background-position: -207px -2899px;
+}
+#nous-joindre .center form p span.ico-message {
+    background-position: -83px -2935px;
+    height: 93px;
+    width: 29px;
+}
+#nous-joindre .center form input, #nous-joindre .center form textarea {
+    border: 2px solid #3E3E3E;
+    border-radius: 6px 6px 6px 6px;
+    font-size: 18px;
+    padding-left: 65px;
+    transition: border 0.4s ease-in-out 0s;
+}
+#nous-joindre .center form input:first-child, #nous-joindre .center form textarea:first-child {
+    margin-top: 0;
+}
+#nous-joindre .center form input.error, #nous-joindre .center form textarea.error {
+    border: 2px solid red;
+}
+#nous-joindre .center form input[type="text"] {
+    box-shadow: 0 1px 1px #ABABAB inset, 0 -1px 1px #A4A4A4 inset;
+    color: #484848;
+    display: block;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+#nous-joindre .center form input[type="submit"] {
+    background: -moz-linear-gradient(center top , #F04B3C 5%, #D83324 100%) repeat scroll 0 0 #F04B3C;
+    border: medium none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 1px 2px #000000;
+    color: #FFFFFF;
+    display: block;
+    font-size: 14px;
+    margin: 40px auto 55px;
+    padding: 15px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 151px;
+}
+#nous-joindre .center form input[type="submit"]:active {
+    top: 1px;
+}
+#nous-joindre .center form textarea {
+    font-family: "ronnia";
+    height: 100px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    resize: none;
+    width: 371px;
+}
+#nous-joindre .center form #subject-select .box-label {
+    background-image: url("http://www.affairesup.com/5SQL/images/sprite.png");
+    background-position: -73px -3140px;
+    background-repeat: no-repeat;
+    border: 2px solid #3E3E3E;
+    box-shadow: 0 1px 1px #ABABAB inset, 0 -1px 1px #A4A4A4 inset;
+    display: block;
+    height: 45px;
+    margin: 0;
+    padding-left: 65px;
+    width: 285px;
+}
+#nous-joindre .center form #subject-select .box-label .label {
+    background: url("http://www.affairesup.com/5SQL/images/select-arrow.png") no-repeat scroll 260px 12px transparent;
+    color: #484848;
+    display: block;
+    font-family: "ronnia";
+    font-size: 18px;
+    line-height: 45px;
+}
+#nous-joindre .center form #subject-select .list {
+    background-color: #FFFFFF;
+    display: none;
+    left: 2px;
+    position: absolute;
+    top: 40px;
+    width: 350px;
+}
+#nous-joindre .center form #subject-select .list li a {
+    color: #A3A3A3;
+    font-family: "ronnia";
+    font-size: 18px;
+    line-height: 40px;
+    padding-left: 65px;
+    text-align: left;
+    width: 283px;
+}
+#nous-joindre .center form #subject-select .list li a:hover {
+    background-color: #F4F4F4;
+}
+#nous-joindre .center .phone {
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: bold;
+    height: 70px;
+    line-height: 55px;
+    margin: 0 auto;
+    position: relative;
+    vertical-align: middle;
+    width: 550px;
+}
+#nous-joindre .center .phone .number {
+    background-color: #434343;
+    border: 2px solid #EE3826;
+    border-radius: 16px 16px 16px 16px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    color: #EE3826;
+    font-size: 14px;
+    line-height: 1;
+    margin-top: -5px;
+    padding: 15px 20px 15px 80px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 160px;
+}
+#nous-joindre .center .phone .number span.icon {
+    background-image: url("http://www.affairesup.com/5SQL/images/sprite.png");
+    background-position: -58px -3051px;
+    background-repeat: no-repeat;
+    height: 67px;
+    left: 5px;
+    position: absolute;
+    top: -6px;
+    width: 57px;
+}
+#nous-joindre .center .phone .number span.arrow {
+    background-image: url("http://www.affairesup.com/5SQL/images/sprite.png");
+    background-position: -105px -2227px;
+    background-repeat: no-repeat;
+    height: 24px;
+    left: 11px;
+    position: absolute;
+    top: 20px;
+    width: 12px;
+}
+#nous-joindre .center .phone .number strong, #nous-joindre .center .phone .number a {
+    color: #FFFFFF;
+    font-size: 22px;
+    text-decoration: none;
+}
+/**/
+
+/* Source: http://www.inserthtml.com/2012/06/custom-form-radio-checkbox/ */
+label {
+    display: inline;
+}
+ 
+/* style the normal checkbox. We remove any default styles with the appearance property, and then just style as we see it. */
+.regular-checkbox {
+    display: none;
+}
+ 
+.regular-checkbox + label {
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 9px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+}
+ 
+/* set the styles for when the user clicks on the checkbox (:active) and when the checkbox is checked. */
+.regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+ 
+.regular-checkbox:checked + label {
+    background-color: #e9ecee;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #99a1a7;
+}
+ 
+/*make an :after pseudo element to contain the check mark (for when the box is checked) by using content. */
+.regular-checkbox:checked + label:after {
+    content: '\2714';    /* content: "?"; */
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: #99a1a7;
+}
+ 
+/* resizing for the big checkboxes */
+.big-checkbox + label {
+    padding: 18px;
+}
+ 
+.big-checkbox:checked + label:after {
+    font-size: 28px;
+    left: 6px;
+}
+
+.tag {
+    font-family: Arial, sans-serif;
+    width: 200px;
+    position: relative;
+    top: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    float: left;
+}
+ 
+.radio-1 {
+    width: 193px;
+}
+ 
+.button-holder {
+    float: left;
+}
+ 
+/* RADIO */
+/* radio buttons follow a similar pattern, only this time we use rounded corners and an actual element rather than text for the highlighted radio button. */
+.regular-radio {
+    display: none;
+}
+ 
+.regular-radio + label {
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 9px;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+}
+ 
+.regular-radio:checked + label:after {
+    content: ' ';
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    position: absolute;
+    top: 3px;
+    background: #99a1a7;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+    text-shadow: 0px;
+    left: 3px;
+    font-size: 32px;
+}
+ 
+.regular-radio:checked + label {
+    background-color: #e9ecee;
+    color: #99a1a7;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1), inset 0px 0px 10px rgba(0,0,0,0.1);
+}
+ 
+.regular-radio + label:active, .regular-radio:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+ 
+.big-radio + label {
+    padding: 16px;
+}
+ 
+.big-radio:checked + label:after {
+    width: 24px;
+    height: 24px;
+    left: 4px;
+    top: 4px;
+}
+
+/* Source: http://codecanyon.net/item/register5-html5-register-form/122185*/
+.form-field-error {
+	border: 1px solid #dc3a3a;
+}
+
+#form-container tr .form-alert {
+	font-size: 0.7em;
+	width: 210px;
+	padding-right: 20px;
+}
+
+.form-error, .form-success {
+	display: none;
+}
+
+.vee-container {
+	position: relative;
+	float: left;
+}
+
+#location-wrapper tr {
+}
+
+#geolocation-worked {
+	display: none;
+} 
+
+.location-detection {
+}
+
+.location-name {
+	font-weight: 700;
+}
+
+#location-answers-switch {
+	height: 30px;
+	overflow: auto;
+	padding-top: 7px;
+}
+
+.switch a {
+	display: block;
+	text-decoration: none;
+	font-size: 1em;
+	float: left;
+	padding: 7px 15px;
+	font-weight: 100;
+	cursor: pointer;
+	position: relative;
+	
+	background: #e6e7e8;
+	background: -moz-linear-gradient(top,  #e6e7e8,  #ffffff);
+	background: -webkit-gradient(linear, left top, left bottom, from(#e6e7e8), to(#ffffff));
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#e6e7e8', EndColorStr='#ffffff', GradientType=0);
+}
+
+.switch a.left-switch {
+	border-bottom-left-radius 	: 10px;
+	-moz-border-radius-bottomleft 	: 10px;
+	-khtml-border-radius-bottomleft: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	border-top-left-radius 	: 10px;
+	-moz-border-radius-topleft 	: 10px;
+	-khtml-border-radius-topleft: 10px;
+	-webkit-border-top-left-radius: 10px;
+	
+	-webkit-box-shadow: inset 2px 2px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 2px 2px 2px rgba(0,0,0,0.3);
+	box-shadow: inset 2px 2px 2px rgba(0,0,0,0.3);
+	z-index: 10;
+	
+	border-right: none !important;
+}
+
+.switch a.right-switch {
+	border-bottom-right-radius 	: 10px;
+	-moz-border-radius-bottomright 	: 10px;
+	-khtml-border-radius-bottomright: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	border-top-right-radius 	: 10px;
+	-moz-border-radius-topright	: 10px;
+	-khtml-border-radius-topright: 10px;
+	-webkit-border-top-right-radius: 10px;
+	
+	-webkit-box-shadow: inset 0px 2px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0px 2px 2px rgba(0,0,0,0.3);
+	box-shadow: inset 0px 2px 2px rgba(0,0,0,0.3);
+	z-index: 9;
+	
+	border-left: none !important;
+}
+
+.switch a.on-top {
+	z-index: 11;
+}
+
+.switch a.checked, .ac_over {
+	background: #dc3a3a;
+	background: -moz-linear-gradient(top,  #dc3a3a,  #b31b1b);
+	background: -webkit-gradient(linear, left top, left bottom, from(#dc3a3a), to(#b31b1b));
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#dc3a3a', EndColorStr='#b31b1b', GradientType=0);
+	color: #f7f5f3;
+}
+
+.switch a.left-switch.checked {
+	-webkit-box-shadow: 2px 0px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 2px 0px 2px rgba(0,0,0,0.3);
+	box-shadow: 2px 0px 2px rgba(0,0,0,0.3);
+}
+
+.switch a.right-switch.checked {
+	-webkit-box-shadow: -2px 0px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: -2px 0px 2px rgba(0,0,0,0.3);
+	box-shadow: -2px 0px 2px rgba(0,0,0,0.3);
+}
+
+#geolocation-fix {
+	clear: both;
+	position: relative;
+	top: 10px;
+}
+
+#country-type {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.location-type-correction {
+	margin-bottom: 15px;
+	display: inline;
+}
+
+body #geolocation-fix .browsing-countries {
+	border-bottom-right-radius 	: 0;
+	-moz-border-radius-bottomright	: 0;
+	-khtml-border-radius-bottomright: 0;
+	-webkit-border-bottom-right-radius: 0;
+	border-bottom-left-radius 	: 0;
+	-moz-border-radius-bottomleft	: 0;
+	-khtml-border-radius-bottomleft: 0;
+	-webkit-border-bottom-left-radius: 0;
+	border-bottom: 1px solid #e6e7e8;
+}
+
+#geolocation-fix-approval {
+	display: inline;
+	margin-left: 20px;
+	font-size: 0.85em;
+}
+
+#geolocation-fix-approval strong {
+	font-size: 1.2em;
+}
+
+#submit-form-expletive {
+	float: left;
+	margin-top: 17px;
+	margin-left: 155px;
+}
+
+#submit-form {
+	height: auto;
+	float: right;
+	margin-right: 40px;
+	position: relative;
+	border: 3px solid #EFEBE7;
+	
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+}
+
+#submit-form input {
+	cursor: pointer;
+	background: #777;
+	border: none;
+	padding: 12px 22px;
+	color: #000;
+	font-size: 9pt;
+	margin: 0;
+	
+	background: #f4f4f4;
+	background: -moz-linear-gradient(top,  #ffffff,  #eeeeee);
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eeeeee));
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#ffffff', EndColorStr='#eeeeee', GradientType=0);
+	
+	border: 1px solid #ddd;
+	border-bottom: 2px solid #ccc;
+	border-top: 1px solid #e2e2e2;
+	
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+}
+
+#submit-form input:active {
+	background: -moz-linear-gradient(top,  #eeeeee,  #ffffff);
+	background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#ffffff));
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#eeeeee', EndColorStr='#ffffff', GradientType=0);
+}
+
+/************* Process *************/
+
+#submission-result-header {
+	margin-top: 20px;
+	text-align: center;
+}
+
+#process-container table {
+	display: none;
+	margin: 30px auto;
+	width: 330px;
+	background: #F7ECC0;
+	border-radius : 15px;
+	-moz-border-radius : 15px;
+	-webkit-border-radius: 15px;
+	-khtml-border-radius: 15px;
+}
+
+#process-container th {
+	padding: 15px 0px 15px 20px;
+	width: 130px;
+	text-align: left;
+}
+
+#process-container td {
+	font-size: 0.9em;
+	padding: 15px 20px 15px 0px;
+}
+
+#result-password td {
+	font-size: 0.75em;
+	font-style: italic;
+}
+
+#about {
+	width: 80%;
+	margin: 0px auto;
+	padding-bottom: 20px;
+}
+
+#technologies {
+	font-style: italic; 
+	text-align: center;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0px;
+}
+
+#about .image-container {
+	width: 500px;
+	margin: 0px auto;
+	margin-top: 20px;
+}
+
+#about-explanation {
+	font-family: georgia, serif;
+	font-size: 0.8em;
+}
+
+#about-explanation p {
+	margin-bottom: 10px;
+}
+
+#submission-error-prompt {
+	margin: 20px auto 0px; 
+	padding-bottom: 40px; 
+	font-size: 0.9em; 
+	width: 75%
+}
+
+#about h5 {
+	font-weight: 700;
+	margin: 20px 0px 15px;
+}
