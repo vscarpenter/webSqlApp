@@ -1,6 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE HTML>
 <head>
 	<title>HTML5 WebSQLApp Git</title>
 <!-- Fonctionnal but the jtsage calendar doesn't work -->
@@ -10,12 +8,23 @@
 	<link rel="stylesheet" href="css/jquery.ui.datepicker.mobile.css" /> 
 	<link rel="apple-touch-icon-precomposed" href="media/images/apple-touch-icon-precomposed.png" />
 
+<!-- Bon pour Apple et aussi sur Android à notre grand plaisir -->
+<!-- ToTry: Pour afficher son application en plein écran : 
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-touch-fullscreen" content="yes">
+<!-- ToTry: Pour choisir le style de la barre de statut sur iPhone : 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!-- ToTry: Pour utiliser une image de chargement : 
+	<link rel="apple-touch-startup-image" href="startup.png" />
+-->
+
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 
 	<script type="text/javascript" src="lib/webSqlSync.js"></script>
 	<script type="text/javascript" src="mySyncData.js"></script>
-	<script type="text/javascript" src="mySyncScript.js"></script>
+<!--	<script type="text/javascript" src="mySyncScript.js"></script>	-->
 
 <!--	<script src="lib/jQuery.ui.datepicker.js"></script>
 	<script src="lib/jquery.ui.datepicker.mobile.js"></script>	-->
@@ -50,10 +59,20 @@
 <!--			<table id="listeItem"> </table> -->
         </table>
 		<div id="uiProgress"> </div>
+		<div id="syncPushOnlyTestResponse">  syncPushOnlyTest:  </div>
+		<div id="syncPullOnlyTestResponse">  syncPullOnlyTest:  </div>
+		<div id="syncPushPingTestResponse">  syncPushPingTest:  </div>
+		<div id="syncPushPullTestResponse">  syncPushPullTest:  </div>
+		<div id="syncUploadUnitsResponse">    syncUploadUnits  :  </div>
+
         <div data-role="footer" >
 			<a href="#" onclick="loadLoginParam();" data-role="button" data-icon="gear" data-iconpos="left" data-mini="true" data-inline="true" data-theme="a">Paramètres</a>
         	<a href="#" onclick="dropTables();" data-role="button" data-icon="delete" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a">Drop tables</a>
-			<a href="#" onclick="mySync();" data-role="button" data-icon="refresh" data-iconpos="left" data-mini="true" data-inline="true" data-theme="a">Sync</a>
+			<a href="#" onclick="syncPushOnlyTest();" data-role="button" data-icon="refresh" data-iconpos="left" data-mini="true" data-inline="true" data-theme="a">SyncPushOnlyTest</a>
+			<a href="#" onclick="syncPullOnlyTest();" data-role="button" data-icon="refresh" data-iconpos="left" data-mini="true" data-inline="true" data-theme="a">SyncPullOnlyTest</a>
+			<a href="#" onclick="syncPushPingTest();" data-role="button" data-icon="refresh" data-iconpos="left" data-mini="true" data-inline="true" data-theme="a">SyncPushPingTest</a>
+			<a href="#" onclick="syncPushPullTest();" data-role="button" data-icon="refresh" data-iconpos="left" data-mini="true" data-inline="true" data-theme="a">SyncPushPullTest</a>
+			<a href="#" onclick="sqlWebSyncTest();" data-role="button" data-icon="refresh" data-iconpos="left" data-mini="true" data-inline="true" data-theme="a">sqlWebSyncTest</a>
         </div>
 	</div>
 
@@ -235,11 +254,28 @@ var sqlDrop_sync_info = "DROP TABLE sync_info";
 var dataset;
 
 var mywebdb = openDatabase("AddressBook", "1.0", "Address Book", 2 * 1024 * 1024);
-createTable();
+createTable();	// To create all tables for the web app 
 
-syncFirst(); // in mySyncScript.js	Call to initialyse the tables to sync with webSqlSync.js 
-//DBSYNC.initSync(SYNCDATA.tableToSync, SYNCDATA.database, SYNCDATA.sync_info, SYNCDATA.url, function(firstSync); //Les paramètres sont définis dans mySyncData.js
+// This function is for the first sync. It create the new_elem and the sync_info tables 
+// It uses mySyncData to feed the parameters, but not le database object parameter, 
+// because, it doesn't work via SYNCDATA.database that seems require a string. 
 
+// syncFirst(); // To initialyse the tables to sync with webSqlSync.js // After, go to syncFirst to do the first sync to the server to populate web app tables.
+//DBSYNC.initSync(SYNCDATA.tableToSync, SYNCDATA.database, SYNCDATA.sync_info, SYNCDATA.url, function(result){ // SYNCDATA.database seems not working // Parameters are defined in mySyncData.js 
+
+syncDownloadUnits();										// It will insert a row with a -1 id to have a first id to 0 like MySQL.
+mywebdb.transaction(function(tx) {
+	tx.executeSql("DELETE FROM Unites WHERE UniteID= -1"); 	// We must insert at least one row in the DB. Strange! Then we can delete our -1 row.
+});
+
+/*
+DBSYNC.initSync(SYNCDATA.tableToSync, mywebdb, SYNCDATA.sync_info, SYNCDATA.url, function(result) { // Parameters are defined in mySyncData.js 
+	//syncFirst();
+	if (result.syncOK === true) {
+		alert("first initSync done successfully");
+	}
+});
+*/
 loadUniteSelect();
 loadUniteSelectEdit();
 loadUniteSelectFiltre();
@@ -273,7 +309,34 @@ function showContacts() {
 	});
 }
 
-// ToDo: generalize the 3 following functions
+/* Trial to generalize the 3 following functions
+// Usage:	SbId = id of the selectbox in the form EX: "ClientSelectboxAdd", "ClientSelectboxEdit", or "ClientSelectboxFilter"
+// 			SbQuery = A string for the DB query to use for this select Ex: "SELECT ClientId, ClientName FROM Clients"
+// 			SbChooseOption = A string for a "Choose" line	Ex: -- Choose an options  -- 
+// 			TableIndexField = A string for the table index to store in the DB 					    Ex: "ClientId"
+// 			SbOptionsDbField1 = A string for a DB column to show in the option line 					Ex: "ClientName"
+// 			SbOptionsDbField2 (optionnal) = A string for the 2nd DB column to show in the option line	Ex: "ProjectName"
+// 			SbOptionsDbField3 (optionnal) = A string for the 3rd DB column to show in the option line	Ex: "RessourceName"
+
+function loadSelectbox(SbId, SbQuery, DbIndex, SbChooseOption, SbOptionsDbField1, SbOptionsDbField2, SbOptionsDbField3) {
+	mywebdb.transaction(function (tx) {
+	//populate drop down for unites
+	tx.executeSql('SbQuery', [], function (tx, results) {
+		var len = results.rows.length; 
+		var i=0;
+		if (SbChooseOption == "") {txt="";} else {var txt="<option value='0'>" + SbChooseOption + "</option>";}
+		for (i = 0; i < len; i++){
+???				DbField1 = results.rows.item(i).[SbOptionsDbField1]		// how to do this???
+???				DbField2 = results.rows.item(i).[SbOptionsDbField2]		// how to do this???
+???				DbField3 = results.rows.item(i).[SbOptionsDbField3]		// how to do this???
+???			txt += "<option value=" + TableIndexField + ">" + DbField1 + " - " + DbField2 + " - " + DbField3 + "</option>";
+//to replace:			txt += "<option value=" + results.rows.item(i).UniteID + ">" + results.rows.item(i).UniteID + " " + "Catégorie" + " - " + results.rows.item(i).UniteSymbol + "</option>";
+		}
+		document.getElementById(SbId).innerHTML=txt;
+	}, null);
+	});
+}
+*/
 function loadUniteSelect() {
 	mywebdb.transaction(function (tx) {
 	//populate drop down for unites
@@ -595,8 +658,187 @@ function deleteRecord(id) {
 	resetForm();
 }
 
-function mySync() {
-	myURL = 'http://www.myWebSite.com/webSqlAppGit/sqlSyncHandlerTest3.php'; //___________
+// test to know if the server accept a json from the webSqlApp 
+// using an Ajax request (just to know if the server config is OK)
+function syncPushOnlyTest() {
+	myURL = 'http://www.mysite.com/webSqlApp/syncPushOnlyTest.php'; //___________
+	myObject = 	'{"result":"OK","message":"this is a positive reply","sync_date":1371753757,"data":[{"UniteID":"0","UniteSymbol":"h"},{"UniteID":"1","UniteSymbol":"km"},{"UniteID":"2","UniteSymbol":"$"},{"UniteID":"3","UniteSymbol":"U$"},{"UniteID":"4","UniteSymbol":"\u20ac"},{"UniteID":"5","UniteSymbol":"$P"}]}';
+
+	var str_json = JSON.stringify(myObject)
+	var request= new window.XMLHttpRequest();
+	request.overrideMimeType = 'application/json;charset=UTF-8';
+	request.open("POST", myURL,true);
+	request.setRequestHeader("Content-type", "application/json");
+	request.send(str_json);
+
+    $('#syncPushOnlyTestResponse').html("SyncPushOnlyTest done ");
+	alert("SyncPush is a Success " + myObject);
+}
+
+// test to know if the server can send a json to the webSqlApp using webSyncHandler.php		
+// syncPullOnlyTest.php return a json that the data comes from a mySQL query
+// It uses jQuery to request the json (just to know if the server config is OK)
+function syncPullOnlyTest() {
+    $.getJSON('http://www.mywebsite.com/webSqlApp/syncPullOnlyTest.php',
+        function(myJsonObject) {
+			alert(myJsonObject.result);
+			alert(myJsonObject.message);
+			alert(myJsonObject.sync_date);
+			alert(myJsonObject.data[2].UniteID);
+			alert(myJsonObject.data[2].UniteSymbol);
+            $('#syncPullOnlyTestResponse').append(myJsonObject.data[4].UniteSymbol);
+        }
+	);
+	//alert("SyncPull is a Success " + myJsonObject.data[4].UniteSymbol); // this line doesn't works.
+}
+
+// test to know if the server accept a json from the webSqlApp and if it return a json from a MySQL query 
+// using an Ajax request (just to know if the server config is OK)
+function syncPushPingTest() {
+	myURL = 'http://www.mywebsite.com/webSqlApp/syncPushOnlyTest.php'; //___________
+	myObject = 	'{"result":"OK","message":"this is a positive reply","sync_date":1371753757,"data":[{"UniteID":"0","UniteSymbol":"h"},{"UniteID":"1","UniteSymbol":"km"},{"UniteID":"2","UniteSymbol":"$"},{"UniteID":"3","UniteSymbol":"U$"},{"UniteID":"4","UniteSymbol":"\u20ac"},{"UniteID":"5","UniteSymbol":"$P"}]}';
+
+	var str_json = JSON.stringify(myObject)
+	var request= new window.XMLHttpRequest();
+	request.overrideMimeType = 'application/json;charset=UTF-8';
+	request.open("POST", myURL,true);
+	request.setRequestHeader("Content-type", "application/json");
+	request.send(str_json);
+
+    $('#syncPushPingTestResponse').html("syncPushPingTest done, ");
+	//alert("SyncPush is a Success ");
+
+	// get feedback proving that the server got the data: get the sent data from the server
+    $.getJSON('http://www.mywebsite.com/webSqlApp/syncPullOnlyTest.php',
+        function(myJsonObject) {
+			alert(myJsonObject.result);
+			alert(myJsonObject.message);
+			alert(myJsonObject.sync_date);
+			alert(myJsonObject.data[2].UniteID);
+			alert(myJsonObject.data[2].UniteSymbol);
+            $('#syncPushPingTestResponse').append(myJsonObject.message);	// if you receive the right server answer, the json bridge works fine.
+        }
+	);
+}
+/*
+// test to know if the server accept a json from the webSqlApp data coming from webSqlSync and if it return a json from a MySQL query 
+function syncPushDataTest() {
+	myURL = 'http://www.mywebsite.com/webSqlApp/syncPushDataTest.php'; //___________
+
+	//myJsonSent = 	'{"result":"OK","message":"this is a positive reply","sync_date":1371753757,"data":[{"UniteID":"0","UniteSymbol":"h"},{"UniteID":"1","UniteSymbol":"km"},{"UniteID":"2","UniteSymbol":"$"},{"UniteID":"3","UniteSymbol":"U$"},{"UniteID":"4","UniteSymbol":"\u20ac"},{"UniteID":"5","UniteSymbol":"$P"}]}';
+
+	//Client data to send
+	mySentJson = '{
+	    	"result":"OK",
+			"message":"this is a positive reply",
+			"sync_date":1371753757,
+			
+			"info": {
+	        "userEmail": "alainb@gmail.com",
+	        "appName": "myWebSqlApp",
+	        "lastSyncDate": 1326553035406,
+	        "userAgent": "Chrome27.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.52.7 (KHTML, like Gecko) Version/5.1.2 Safari/534.52.7",
+	        "myApp_version": "0.1 (webSqlApp)",
+	        "lng": "fr",
+	        "device_uuid": "1234567890"
+	    	},
+	    	
+			"data": {
+	        "Unite": [{
+	            "UniteID": 100330,
+	            "UniteNom": "Yen",
+	            "UniteSymbol": "Y$",
+	            "nbOK": 1,
+	            "nbKO": 0
+	        	},
+	        	{
+	            "UniteID": 100330,
+	            "UniteNom": "Yen",
+	            "UniteSymbol": "Y$",
+	            "nbOK": 1,
+	            "nbKO": 0
+	        },
+	        {	        }]
+	    }
+	}';
+
+	DBSYNC._sendDataToServer (mySentJson, function(serverAnswer) {
+*/
+/*	Old way to send a json string (replaced by the webSqlSync.js method 
+	var str_json = JSON.stringify(myObject)
+	var request= new window.XMLHttpRequest();
+	request.overrideMimeType = 'application/json;charset=UTF-8';
+	request.open("POST", myURL,true);
+	request.setRequestHeader("Content-type", "application/json");
+	request.send(str_json);
+*/
+/*    $('#syncPushPingTestResponse').html("syncPushPingTest done, ");
+	//alert("SyncPush is a Success ");
+
+	// get feedback proving that the server got the data: get the sent data from the server
+    $.getJSON('http://www.mywebsite.com/webSqlApp/syncPullOnlyTest.php',
+        function(myJsonObject) {
+			alert(myJsonObject.result);
+			alert(myJsonObject.message);
+			alert(myJsonObject.sync_date);
+			alert(myJsonObject.data[2].UniteID);
+			alert(myJsonObject.data[2].UniteSymbol);
+            $('#syncPushPingTestResponse').append(myJsonObject.message);	// if you receive the right server answer, the json bridge works fine.
+        }
+	);
+}
+*/
+
+// test to know if the server accept a json from the webSqlApp and if it return a json from a MySQL query 
+function syncPushInDbTest() {
+	myURL = 'http://www.mywebsite.com/webSqlApp/syncPushInDbTest.php'; //___________
+	myObject = 	'{"result":"OK","message":"this is a positive reply","sync_date":1371753757,"data":[{"UniteID":"0","UniteSymbol":"h"},{"UniteID":"1","UniteSymbol":"km"},{"UniteID":"2","UniteSymbol":"$"},{"UniteID":"3","UniteSymbol":"U$"},{"UniteID":"4","UniteSymbol":"\u20ac"},{"UniteID":"5","UniteSymbol":"$P"}]}';
+
+	var str_json = JSON.stringify(myObject)
+	var request= new window.XMLHttpRequest();
+	request.overrideMimeType = 'application/json;charset=UTF-8';
+	request.open("POST", myURL,true);
+	request.setRequestHeader("Content-type", "application/json");
+	request.send(str_json);
+
+    $('#syncPushInDbTestResponse').html("syncPushInDbTest done, ");
+	//alert("SyncPush is a Success ");
+
+    $.getJSON('http://www.mywebsite.com/webSqlApp/syncPullDataTest.php',
+        function(myJsonObject) {
+			alert(myJsonObject.result);
+			alert(myJsonObject.message);
+			alert(myJsonObject.sync_date);
+			alert(myJsonObject.data[2].UniteID);
+			alert(myJsonObject.data[2].UniteSymbol);
+            $('#syncPushPingTestResponse').append(myJsonObject.message);	// if you receive the right server answer, the json bridge works fine.
+        }
+	);
+}
+
+function syncDownloadUnits(){	// Fonctionnal but not totally: The 2 tables for the sync are created. 
+	//mySyncURL = 'http://www.mywebsite.com/webSqlApp/syncPullOnlyTest.php'; //___________
+	mySyncURL = 'http://www.mywebsite.com/webSqlApp/sqlSyncHandlerTest.php'; //___________
+	//myObject = 	'{"result":"OK","message":"this is a positive reply","sync_date":1371753757,"data":[{"UniteID":"0","UniteSymbol":"h"},{"UniteID":"1","UniteSymbol":"km"},{"UniteID":"2","UniteSymbol":"$"},{"UniteID":"3","UniteSymbol":"U$"},{"UniteID":"4","UniteSymbol":"\u20ac"},{"UniteID":"5","UniteSymbol":"$P"}]}';
+	unitsTableToSync = [
+        {tableName: 'Unites', idName: 'UniteID'}
+    ];
+
+	DBSYNC.initSync(unitsTableToSync, mywebdb, SYNCDATA.sync_info, mySyncURL, function(result){	//Parameters are defined in mySyncData.js
+		DBSYNC.syncNow(callBackProgress, function(result) {
+			if (result.syncOK === true) {
+				alert("mySync Success ");  //Synchronized successfully
+			}
+			else {
+				alert("mySync Not dones"); //Synchronized error
+			}
+		}); // to close the syncNow
+	}); // to close the iniytSynnc
+}
+
+// test to know if the server accept a json from the webSqlApp, if it create a INSERT INTO to MySQL from the json //and if it return a json from a MySQL query 
+function syncUploadUnits() {
+	myURL = 'http://www.mywebsite.com/webSqlApp/syncUploadUnits.php'; //___________
     $.getJSON(myURL,
         function(myJsonObject) {
 			DBSYNC.syncNow(callBackProgress, function(result) {
@@ -611,6 +853,8 @@ function mySync() {
     ); // to close the jQuery.getJSON
 }
 
+// message, persent and msgKey comes from syncNow of webSqlSync.js line 128 and 136
+// Ex: message= "mon message", percent= 20, msgKey= "sendData"  
 function callBackProgress (message, percent, msgKey) {
      $('#uiProgress').html(message+' ('+percent+'%)');
 }
@@ -619,13 +863,17 @@ function createTable() {
 	mywebdb.transaction(function(tx) {
 		tx.executeSql(sqlCreateTableContacts, [], showContacts, onError); // Create Contacts table
 		//tx.executeSql(sqlCreateTableUnites, []);
+    	tx.executeSql("UPDATE SQLITE_SEQUENCE SET seq = -1 WHERE name = 'Contacts'");	//, []); //ne marche pas
 		tx.executeSql("INSERT INTO Contacts (firstName, lastName, qte, MaJdate, cbFait, rbABC, uniteId) VALUES (?, ?, ?, ?, ?, ?, ?);", ['Z', 'Z', '9', '2013-05-09', '1', 'C', '1']);
 
-		tx.executeSql("CREATE TABLE IF NOT EXISTS Unites (UniteID INTEGER PRIMARY KEY AUTOINCREMENT, UniteSymbol TEXT)");
-		tx.executeSql("INSERT INTO Unites(UniteSymbol) VALUES(?)", ['hours']); 
-		tx.executeSql("INSERT INTO Unites(UniteSymbol) VALUES(?)", ['miles']); 
-		tx.executeSql("INSERT INTO Unites(UniteSymbol) VALUES(?)", ['U$']); 
-		// Note: The sync will add 5 other units
+		tx.executeSql("CREATE TABLE IF NOT EXISTS Unites (UniteID INTEGER PRIMARY KEY, UniteSymbol TEXT)");	// AUTOINCREMENT removed to have an id not starting with 1
+    	tx.executeSql("UPDATE SQLITE_SEQUENCE SET seq = -1 WHERE name = 'Unites'");	//, []); //It does'nt works if the primary key is AUTOINCREMENT
+		tx.executeSql("INSERT INTO Unites(UniteID, UniteSymbol) VALUES(?, ?)", [-1,'C$']); // It insert a row with an ID of -1 to have the next id to 0 like MySQL
+//		tx.executeSql("INSERT INTO Unites(UniteSymbol) VALUES(?)", ['hours']); 
+		//tx.executeSql("DELETE FROM Unites WHERE UniteID= -1"); 	// To have a first id to 0, we must insert at least one row in the DB. Strange! Then we can delete our -1 row.
+//		tx.executeSql("INSERT INTO Unites(UniteSymbol) VALUES(?)", ['miles']); 
+//		tx.executeSql("INSERT INTO Unites(UniteSymbol) VALUES(?)", ['U$']); 
+		// Note: The sync should add 5 other units
 
 		tx.executeSql(sqlCreateTableFiltreParam, [], showContacts, onError); // Create FiltreParam pour enregistrer les paramètres de filtrage de Activites
 		tx.executeSql("INSERT INTO FiltreParam (firstNameFP, lastNameFP, qteFP, MaJdateFP, cbFaitFP, rbABCFP, uniteIdFP) VALUES (?, ?, ?, ?, ?, ?, ?);", ['Z', 'ZZ', '1', '2013-06-01', '1', 'A', '1']);
