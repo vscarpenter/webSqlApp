@@ -1,6 +1,33 @@
 <?php
 // Name: sqlSyncHandlerTest.php 
-// Goal: To test if SqlSyncHandler.php that works with data comming from a MySQL query using myJob. R: It works
+
+/*******************************************************************
+ * sqlSyncHandlerTest.php is a part of WebSqlApp, a local WebSQL DB (SQLite) CRUD application.
+ * sqlSyncHandlerTest is under development. The first objective is to get the data from MySQL to webSqlApp. The next objective is to do a 2 ways sync.
+ * WebSqlApp use WebSqlSync.js to sync to a server.
+ * Thanks to Samuel Michelot for webSqlSync.js	https://github.com/orbitaloop/WebSqlSync
+ ******************************************************************/
+/*
+Usage: https://github.com/abeauseigle/webSqlApp
+
+ Copyright (c) 2013, Alain Beauseigle of AffairesUP.com (R&D tax credit expert in QC, Canada)
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation the
+ rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the Software
+ is furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 		
 	include("SqlSyncHandler.php");
 	
@@ -68,7 +95,7 @@ function getAllUnits(){		    // ToDo: put it seperately in getUnits.php, getCont
 	return $getUnits;
 }
 */
-function connectdb(){			// ToDo: put it seperate in loginCheck.php and getUnits.php
+function connectdb(){			// ToDo: put it seperately in loginCheck.php and getUnits.php
 // Prevent caching.
 ///header('Cache-Control: no-cache, must-revalidate');
 ///header('Expires: Mon, 01 Jan 1996 00:00:00 GMT');
